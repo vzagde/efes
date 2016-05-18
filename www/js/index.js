@@ -50,13 +50,16 @@ var app = {
 
 document.addEventListener("deviceready", onDeviceReady, false);
 var regID = '';
+alert("Device Load");
 function onDeviceReady() {
+    alert("On Device Load");
     var push = PushNotification.init({ "android": {"senderID": "223767762284"},
     "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
 
     push.on('registration', function(data) {
         regID = data.registrationId;
         localStorage.setItem('regID', data.registrationId);
+        alert("Registration Load"+data);
         $.ajax({
             url: 'http://casaestilo.in/greenlam_app_admin/index.php/api/addPush',
             type: 'POST',
@@ -66,9 +69,11 @@ function onDeviceReady() {
         })
         .done(function() {
             console.log("success");
+            alert("success");
         })
         .fail(function() {
             console.log("error");
+            alert("fail");
         })
         .always(function() {
             console.log("complete");
@@ -80,6 +85,6 @@ function onDeviceReady() {
     });
 
     push.on('error', function(e) {
-        // alert(e.message);
+        alert(e.message);
     });
 }
