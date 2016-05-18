@@ -47,3 +47,39 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+document.addEventListener("deviceready", onDeviceReady, false);
+var regID = '';
+function onDeviceReady() {
+    var push = PushNotification.init({ "android": {"senderID": "223767762284"},
+    "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+
+    push.on('registration', function(data) {
+        regID = data.registrationId;
+        localStorage.setItem('regID', data.registrationId);
+        $.ajax({
+            url: 'http://casaestilo.in/greenlam_app_admin/index.php/api/addPush',
+            type: 'POST',
+            dataType: 'JSON',
+            crossDomain: true,
+            data: {registrationId: data.registrationId},
+        })
+        .done(function() {
+            console.log("success");
+        })
+        .fail(function() {
+            console.log("error");
+        })
+        .always(function() {
+            console.log("complete");
+        });
+    });
+
+    push.on('notification', function(data) {
+        document.addEventListener("resume", onResume(data.title,data.message), false);
+    });
+
+    push.on('error', function(e) {
+        // alert(e.message);
+    });
+}

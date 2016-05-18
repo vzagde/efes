@@ -107,11 +107,7 @@
                 // The scope of 'this' is the event. In order to call the 'receivedEvent'
                 // function, we must explicitly call 'app.receivedEvent(...);'
                 onDeviceReady: function() {
-
-                    
                     app.receivedEvent('deviceready');
-
-
                 },
                 // Update DOM on a Received Event
                 receivedEvent: function(id) {
@@ -126,7 +122,7 @@
                             if(confirm("Do you want to Exit!")) { 
                                 navigator.app.clearHistory();
                                 navigator.app.exitApp();
-                             }
+                            }
                         }else {
                             navigator.app.backHistory();
                         }
@@ -134,9 +130,6 @@
                     device_platform = device.platform;
                     //alert(device.platform);
                     // This works function onBackKeyDown() { $$(".back").click(); } document.addEventListener("backbutton", onBackKeyDown, false);
-
-
-
                     setTimeout(function() {
                         navigator.splashscreen.hide();
                         if(!window.localStorage.getItem("username")){
@@ -146,10 +139,7 @@
 
                         }
                     }, 3000);
-                   
-                     
                 }
-
             }; 
 
             app.initialize();
