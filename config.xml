@@ -47,7 +47,7 @@
     <plugin name="com.synconset.imagepicker" spec="1.0.4" source="pgb" />
     <plugin name="com.verso.cordova.clipboard" spec="0.1.0" source="pgb" />
     <plugin name="cordova-plugin-whitelist" version="1"/>
-    <plugin name="phonegap-plugin-push" source="npm">
+    <plugin name="phonegap-plugin-push" source="npm" version="1">
         <param name="SENDER_ID" value="223767762284" />
     </plugin>
     <icon src="icon.png" />
