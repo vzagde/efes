@@ -45,30 +45,31 @@
     <plugin name="com.synconset.imagepicker" spec="1.0.4" source="pgb" />
     <plugin name="com.verso.cordova.clipboard" spec="0.1.0" source="pgb" />
     <plugin name="cordova-plugin-whitelist" version="1"/>
-
+    <plugin name="phonegap-plugin-push" source="npm">
+        <param name="SENDER_ID" value="223767762284" />
+    </plugin>
     <icon src="icon.png" />
     
-<feature name="File">
-    <param name="android-package" value="org.apache.cordova.FileUtils" />
-</feature>
-<feature name="FileTransfer">
-    <param name="android-package" value="org.apache.cordova.FileTransfer" />
-</feature>
-  <feature name="File">
-    <param name="ios-package" value="CDVFile" />
-</feature>
-<feature name="FileTransfer">
-    <param name="ios-package" value="CDVFileTransfer" />
-</feature>
+    <feature name="File">
+        <param name="android-package" value="org.apache.cordova.FileUtils" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="android-package" value="org.apache.cordova.FileTransfer" />
+    </feature>
+      <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="ios-package" value="CDVFileTransfer" />
+    </feature>
     <feature name="SplashScreen">
         <param name="android-package" value="org.apache.cordova.SplashScreen" />
     </feature>
     <feature name="SplashScreen">
         <param name="ios-package" value="CDVSplashScreen" />
- 
     </feature>
 
-<gap:splash src="www/res/screen/android/screen-ldpi-portrait.png" gap:platform="android" gap:qualifier="port-ldpi"/>
+  <gap:splash src="www/res/screen/android/screen-ldpi-portrait.png" gap:platform="android" gap:qualifier="port-ldpi"/>
   <gap:splash src="www/res/screen/android/screen-mdpi-portrait.png" gap:platform="android" gap:qualifier="port-mdpi"/>
   <gap:splash src="www/res/screen/android/screen-hdpi-portrait.png" gap:platform="android" gap:qualifier="port-hdpi"/>
   <gap:splash src="www/res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:qualifier="port-xhdpi"/>
