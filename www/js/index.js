@@ -51,17 +51,14 @@
 
 document.addEventListener("deviceready", onDeviceReadyMy, false);
 function onDeviceReadyMy() {
-    // push code
-    //alert('before push');
     var push = PushNotification.init({ 
-        "android": {"senderID": "492720801087"},
+        // "android": {"senderID": "492720801087"},
+        "android": {"senderID": "223767762284"},
         "ios": {"alert": "true", "badge": "true", "sound": "true"}, 
         "windows": {} 
     });
 
     push.on('registration', function(data) {
-        alert('alert');
-        alert(data.registrationId);
         regID = data.registrationId;
         localStorage.setItem('regID', data.registrationId);
         $.ajax({
@@ -74,15 +71,12 @@ function onDeviceReadyMy() {
         })
         .done(function() {
             console.log("success");
-            alert('success');
         })
         .fail(function() {
             console.log("error");
-            alert('error');
         })
         .always(function() {
             console.log("complete");
-            alert('complete');
         });
     });
 
