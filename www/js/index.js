@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-var app = {
+/*var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -47,36 +47,42 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+*/
 
-document.addEventListener("deviceready", onDeviceReady, false);
-var regID = '';
-alert("Device Load");
-function onDeviceReady() {
-    alert("On Device Load");
-    var push = PushNotification.init({ "android": {"senderID": "223767762284"},
-    "ios": {"alert": "true", "badge": "true", "sound": "true"}, "windows": {} } );
+document.addEventListener("deviceready", onDeviceReadyMy, false);
+function onDeviceReadyMy() {
+    // push code
+    //alert('before push');
+    var push = PushNotification.init({ 
+        "android": {"senderID": "492720801087"},
+        "ios": {"alert": "true", "badge": "true", "sound": "true"}, 
+        "windows": {} 
+    });
 
     push.on('registration', function(data) {
+        alert('alert');
+        alert(data.registrationId);
         regID = data.registrationId;
         localStorage.setItem('regID', data.registrationId);
-        alert("Registration Load"+data);
         $.ajax({
-            url: 'http://casaestilo.in/greenlam_app_admin/index.php/api/addPush',
+            url: 'http://192.168.0.107/efes_server/add_device.php',
             type: 'POST',
             dataType: 'JSON',
-            crossDomain: true,
-            data: {registrationId: data.registrationId},
+            data: {
+                registeration_id: data.registrationId
+            },
         })
         .done(function() {
             console.log("success");
-            alert("success");
+            alert('success');
         })
         .fail(function() {
             console.log("error");
-            alert("fail");
+            alert('error');
         })
         .always(function() {
             console.log("complete");
+            alert('complete');
         });
     });
 
@@ -86,5 +92,12 @@ function onDeviceReady() {
 
     push.on('error', function(e) {
         alert(e.message);
-    });
+    });  
+
+    //alert('after push');
+}
+
+function onResume(title, message) {
+    alert('title: '+title);
+    alert('message: '+message);
 }
