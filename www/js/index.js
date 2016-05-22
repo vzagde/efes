@@ -65,11 +65,11 @@ function onDeviceReadyMy() {
         regID = data.registrationId;
         localStorage.setItem('regID', data.registrationId);
         $.ajax({
-            url: 'http://192.168.0.107/efes_server/add_device.php',
+            url: 'http://casaestilo.in/greenlam_app_admin/index.php/api/addPush',
             type: 'POST',
             dataType: 'JSON',
             data: {
-                registeration_id: data.registrationId
+                registrationId: data.registrationId
             },
         })
         .done(function() {
