@@ -70,6 +70,7 @@ function onDeviceReadyMy() {
             },
         })
         .done(function() {
+
             console.log("success");
         })
         .fail(function() {
