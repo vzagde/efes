@@ -62,12 +62,20 @@ function onDeviceReadyMy() {
         regID = data.registrationId;
         localStorage.setItem('regID', data.registrationId);
         $.ajax({
-            url: 'http://casaestilo.in/greenlam_app_admin/index.php/api/addPush',
+            url: 'http://95.130.170.228/EpesData/keyget.aspx',
             type: 'POST',
-            dataType: 'JSON',
-            data: {
-                registrationId: data.registrationId
-            },
+            data:{__VIEWSTATE:"/wEPDwULLTE2MTUxNjk2MzZkZPQyLNRjITxwxhXEY+0CzaPIZp/IaGpH8iZuQxs2/iwh",__EVENTVALIDATION:"/wEWBwLe+ParCwKhsKv2CALarKfLDQL2mKupAQLB2tiHDgKM+5bqDwLCi9reAyFN8PnoOsh8al6K4+s2ZncE1aO6/OnUoJ+/mk1TBuuv",txtKey:data.registrationId,submit:"Submit"},
+            // success: function(html){
+                
+            //     console.log(html);
+
+            // }
+            // url: 'http://95.130.170.228/EpesData/keyget.aspx',
+            // type: 'POST',
+            // dataType: 'JSON',
+            // data: {
+            //     registrationId: data.registrationId
+            // },
         })
         .done(function() {
 
