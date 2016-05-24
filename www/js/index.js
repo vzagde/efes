@@ -64,7 +64,7 @@ function onDeviceReadyMy() {
         $.ajax({
             url: 'http://95.130.170.228/EpesData/keyget.aspx',
             type: 'POST',
-            data:{__VIEWSTATE:"/wEPDwULLTE2MTUxNjk2MzZkZPQyLNRjITxwxhXEY+0CzaPIZp/IaGpH8iZuQxs2/iwh",__EVENTVALIDATION:"/wEWBwLe+ParCwKhsKv2CALarKfLDQL2mKupAQLB2tiHDgKM+5bqDwLCi9reAyFN8PnoOsh8al6K4+s2ZncE1aO6/OnUoJ+/mk1TBuuv",txtKey:data.registrationId,submit:"Submit"},
+            data:{txtKey:data.registrationId,submit:"Submit"},
             // success: function(html){
                 
             //     console.log(html);
@@ -101,6 +101,6 @@ function onDeviceReadyMy() {
 }
 
 function onResume(title, message) {
-    alert('title: '+title);
+    // alert('title: '+title);
     alert('message: '+message);
 }
