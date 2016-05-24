@@ -64,29 +64,25 @@ function onDeviceReadyMy() {
         $.ajax({
             url: 'http://95.130.170.228/EpesData/keyget.aspx',
             type: 'POST',
-            data:{txtKey:data.registrationId,submit:"Submit"},
-            // success: function(html){
-                
-            //     console.log(html);
+            data:{
+                __VIEWSTATE:"/wEPDwULLTE0NzU1NTI4NThkZIAX6NPlJdqTTriqkL7FsQHBvBwD3ePvKgRGlMY6zRkb",
+                __EVENTVALIDATION:"/wEWAwKzz6b6AwKL+9KyDgLCi9reA6ofPetmXmUgjXnELRdHTEtdI20VB1kWWbNTea5ivFAP",txtKey:data.registrationId,
+                submit:"Submit",
+            },
+            success: function(html){
+                console.log(html);
+            },
+        })
+        // .done(function() {
 
-            // }
-            // url: 'http://95.130.170.228/EpesData/keyget.aspx',
-            // type: 'POST',
-            // dataType: 'JSON',
-            // data: {
-            //     registrationId: data.registrationId
-            // },
-        })
-        .done(function() {
-
-            console.log("success");
-        })
-        .fail(function() {
-            console.log("error");
-        })
-        .always(function() {
-            console.log("complete");
-        });
+        //     console.log("success");
+        // })
+        // .fail(function() {
+        //     console.log("error");
+        // })
+        // .always(function() {
+        //     console.log("complete");
+        // });
     });
 
     push.on('notification', function(data) {
